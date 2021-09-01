@@ -85,3 +85,5 @@ model.fit(X_train, Y_train, validation_data=(X_validation,Y_validation), batch_s
 # evaluate the CNN
 test_error, test_accuracy = model.evaluate(X_test, Y_test, verbose=1)
 print("Accuracy on test set is: {}".format(test_accuracy))
+
+model.save('cnn-mfcc')
