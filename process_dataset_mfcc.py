@@ -1,7 +1,8 @@
-import os
-import librosa
-import math
 import json
+import math
+import os
+
+import librosa
 
 DATASET_PATH = "genre_samples"
 JSON_PATH = "data.json"
@@ -11,7 +12,7 @@ SAMPLES_PER_TRACK = SAMPLE_RATE * 30  # sample rate times the sample duration
 
 def save_data(dataset_path, json_path, n_mfcc=20, n_fft=2048, hop_length=512, num_segments=10):
 
-    #store data
+    # store data
     data = {
         "genres": [],
         "mfcc_values": [],
@@ -54,7 +55,7 @@ def save_data(dataset_path, json_path, n_mfcc=20, n_fft=2048, hop_length=512, nu
 
                     mfcc = mfcc.T
 
-                    #store mfcc for segment if it has the expected length
+                    # store mfcc for segment if it has the expected length
                     if len(mfcc) == expected_num_mfcc_vectors_per_segment:
                         data["mfcc_values"].append(mfcc.tolist())
                         data["labels"].append(i-1)
